@@ -1,0 +1,10 @@
+// dht11: http://images.google.de/imgres?imgurl=http://www.hobbyist.co.nz/sites/default/files/Arduino_Sensor_interface.png&imgrefurl=http://www.hobbyist.co.nz/%3Fq%3Ddocumentations/wiring-up-dht11-temp-humidity-sensor-to-your-arduino&h=539&w=630&tbnid=572DUKPoS8qNzM:&vet=1&tbnh=93&tbnw=109&docid=czUaB1xRAiY2RM&usg=__0DxcC3mudOGd1mScN0HHBqKV11c=&sa=X&ved=0ahUKEwis95y4hanRAhUHvxQKHfFvAjgQ9QEIHDAA
+// Motion sensor: https://learn.adafruit.com/pir-passive-infrared-proximity-motion-sensor/using-a-pir
+// Time handling: http://marios.xyz/blog/2014/04/water-arduino.html
+// Pressure (BMP180):
+//   + https://learn.adafruit.com/assets/15050
+//   + http://www.instructables.com/id/Arduino-BMP180/step3/The-code/
+//
+// Optimizing: https://learn.adafruit.com/memories-of-an-arduino/optimizing-sram
+// Monitoring: https://github.com/chrishonson/Arduino_CPU_Usage
+// Arduino internal temperature: http://playground.arduino.cc/Main/InternalTemperatureSensor
