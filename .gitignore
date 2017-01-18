@@ -3,3 +3,5 @@ Libraries/
 gardener_sensors/
 .pioenvs
 .piolibdeps
+.clang_complete
+.gcc-flags.json
