@@ -1,3 +1,5 @@
 Resources/
 Libraries/
 gardener_sensors/
+.pioenvs
+.piolibdeps
