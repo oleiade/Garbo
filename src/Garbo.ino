@@ -1,9 +1,9 @@
 #include <Bridge.h>
 #include <Process.h>
 
+#include "./dht.h"
 #include "./sampling.h"
 #include "./utils.h"
-#include "./dht.h"
 
 #define DHT_DEBUG
 
@@ -18,7 +18,8 @@ void setup() {
   Bridge.begin();
 
   DEBUG_PRINTLN("Checking connectivity... ");
-  while (!isConnectedToInternet(&p));
+  while (!isConnectedToInternet(&p)) {
+  }
   DEBUG_PRINTLN("Connected");
 
   DEBUG_PRINTLN("Syncing clock...");
@@ -28,11 +29,12 @@ void setup() {
     DEBUG_PRINTLN("BMP180 init success");
   } else {
     DEBUG_PRINTLN("BMP180 init failed");
-    while(1);
+    while (1) {
+    }
   }
 
   dht.begin();
-  
+
   // Initialize light sensor
   tsl.enableAutoRange(true);
   tsl.setIntegrationTime(TSL2561_INTEGRATIONTIME_13MS);
@@ -42,19 +44,21 @@ void setup() {
 void loop() {
   WeatherSample sample;
   sampleWeather(&sample);
-  
+
   p.begin("curl");
   p.addParameter("-i");
   p.addParameter("-XPOST");
   p.addParameter("http://192.168.178.37:8086/write?db=garbo");
   p.addParameter("-d "
-    "humidity,node=pluto value=" + String(sample.humidity) + "\n"
-    "temperature,node=pluto value=" + String(sample.temperature) + "\n"
-    "pressure,node=pluto value=" + String(sample.pressure) + "\n"
-    "light,node=pluto value=" + String(sample.light) + "\n"
-  );
+                 "humidity,node=pluto value=" +
+                 String(sample.humidity) + "\n"
+                                           "temperature,node=pluto value=" +
+                 String(sample.temperature) + "\n"
+                                              "pressure,node=pluto value=" +
+                 String(sample.pressure) + "\n"
+                                           "light,node=pluto value=" +
+                 String(sample.light) + "\n");
   p.run();
 
   delay(10000);
 }
-
